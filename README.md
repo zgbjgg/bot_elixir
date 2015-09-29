@@ -68,5 +68,12 @@ Send the stanza from client:
 iex(5)> BOT.send_stanza(client, stanza)
 ```
 
+Disconnect the client:
+
+```elixir
+iex(6)> BOT.disconnect_client(client)
+:ok
+```
+
 All the logs of incoming and outgoing stanzas will be printed into console.
 
