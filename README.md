@@ -75,5 +75,11 @@ iex(6)> BOT.disconnect_client(client)
 :ok
 ```
 
+**Handler**
+
+In the handler module `lib/receiver.ex` you can see the match of incoming stanzas, for `presence`, `message` and `iq`. Inside these functions you can do whatever you want with the incoming stanzas.
+
+**Logs**
+
 All the logs of incoming and outgoing stanzas will be printed into console.
 
