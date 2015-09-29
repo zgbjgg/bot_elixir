@@ -1,5 +1,5 @@
-BOT ALTENWALD
-=============
+BOT ELIXIR
+==========
 
 BOT to send and receive stanzas to/from XMPP server using Elixir.
 
@@ -35,23 +35,23 @@ Create a client to connect against the server:
 iex(1)> client = BOT.make_client('allison@zgbjggs-macbook-pro.local', '123456')
 %{handlers: [{Hedwig.Handlers.Receiver, %{}}],
   jid: "allison@zgbjggs-macbook-pro.local", nickname: "allison", password: "123456",
-  resource: "altenwald", rooms: []}
+  resource: "bot", rooms: []}
 ```
 
 Connect the client:
 
 ```elixir
-iex(3)> BOT.connect_client(client)
+iex(2)> BOT.connect_client(client)
 {:ok, #PID<0.144.0>}
 ```
 
 Create a stanza:
 
 ```elixir
-stanza = Hedwig.Stanza.iq('some', 'set', {:xmlel, "data", [{"xmlns", 'some-ns'}], []})   
+iex(3)> stanza = Hedwig.Stanza.iq('some', 'set', {:xmlel, "data", [{"xmlns", 'some-ns'}], []})   
 {:xmlel, "iq", [{"to", 'some'}, {"type", 'set'}, {"id", "0868"}],
  {:xmlel, "data", [{"xmlns", 'some-ns'}], []}}
-iex(2)> Hedwig.Stanza.to_xml(stanza)
+iex(4)> Hedwig.Stanza.to_xml(stanza)
 "<iq to='some' type='set' id='0868'><data xmlns='some-ns'/></iq>"
 ```
 
@@ -65,7 +65,7 @@ In order to create a valid stanza, the third parameter would be a xmlel record w
 Send the stanza from client:
 
 ```elixir
-BOT.send_stanza(client, stanza)
+iex(5)> BOT.send_stanza(client, stanza)
 ```
 
 All the logs of incoming and outgoing stanzas will be printed into console.
