@@ -5,7 +5,7 @@ def make_client(jid, password) do
     %{ jid: :erlang.list_to_binary(jid),
        password: :erlang.list_to_binary(password),
        nickname: :erlang.list_to_binary(nickname),
-       resource: "altenwald",
+       resource: "bot",
        rooms: [],
        handlers: [{Hedwig.Handlers.Receiver, %{}}]
     }
