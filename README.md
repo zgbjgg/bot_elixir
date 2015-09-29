@@ -5,31 +5,33 @@ BOT to send and receive stanzas to/from XMPP server using Elixir.
 
 * NOTE: This BOT is only for testing purposes.
 
-**Dependencies:**
+### **Dependencies:**
+***
 
 	* Hedwig - XMPP Client Framework
 
-**How to use:**
+### **How to use:**
+***
 
-Download the code from github repo:
+* Download the code from github repo:
 
 ```bash
 git clone https://github.com/zgbjgg/elixir_bot
 ```
 
-Download dependencies and compile:
+* Download dependencies and compile:
 
 ```bash
 make 
 ```
 
-Start the Elixir Interactive Shell and play:
+* Start the Elixir Interactive Shell and play:
 
 ```bash
 $ iex -S mix
 ```
 
-Create a client to connect against the server:
+* Create a client to connect against the server:
 
 ```elixir
 iex(1)> client = BOT.make_client('allison@zgbjggs-macbook-pro.local', '123456')
@@ -38,14 +40,14 @@ iex(1)> client = BOT.make_client('allison@zgbjggs-macbook-pro.local', '123456')
   resource: "bot", rooms: []}
 ```
 
-Connect the client:
+* Connect the client:
 
 ```elixir
 iex(2)> BOT.connect_client(client)
 {:ok, #PID<0.144.0>}
 ```
 
-Create a stanza:
+* Create a stanza:
 
 ```elixir
 iex(3)> stanza = Hedwig.Stanza.iq('some', 'set', {:xmlel, "data", [{"xmlns", 'some-ns'}], []})   
@@ -62,24 +64,26 @@ In order to create a valid stanza, the third parameter would be a xmlel record w
 * Body (which also is a xmlel element)
 
 
-Send the stanza from client:
+* Send the stanza from client:
 
 ```elixir
 iex(5)> BOT.send_stanza(client, stanza)
 ```
 
-Disconnect the client:
+* Disconnect the client:
 
 ```elixir
 iex(6)> BOT.disconnect_client(client)
 :ok
 ```
 
-**Handler**
+### **Handler**
+***
 
 In the handler module `lib/receiver.ex` you can see the match of incoming stanzas, for `presence`, `message` and `iq`. Inside these functions you can do whatever you want with the incoming stanzas.
 
-**Logs**
+### **Logs**
+**
 
 All the logs of incoming and outgoing stanzas will be printed into console.
 
